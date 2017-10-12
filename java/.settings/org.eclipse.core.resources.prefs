@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/com/gate/rest/FutureClient.java=UTF-8
+encoding//src/com/gate/rest/MD5Util.java=UTF-8
+encoding//src/com/gate/rest/StockClient.java=UTF-8
+encoding//src/com/gate/rest/stock/IStockRestApi.java=UTF-8
+encoding//src/com/gate/rest/stock/impl/StockRestApi.java=UTF-8
