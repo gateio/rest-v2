@@ -4,8 +4,8 @@
 		
 		// API settings, add your Key and Secret at here
 
-        $key = "78949236-CF75-42AB-BB8A-CF989AE36FCB";
-		$secret = "734973fc5813c0c7bb9ab4f77d38401ef60ac2e23b4bf90250d11ed7e95dc7e9";
+        $key = "your api key";
+		$secret = "your api secret";
 
 		// generate a nonce as microtime, with as-string handling to avoid problems with 32bits systems
 		$mt = explode(' ', microtime());
