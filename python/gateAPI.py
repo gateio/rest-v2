@@ -109,6 +109,7 @@ class GateIO:
     # 获取下单状态
     def getOrder(self, orderNumber, currencyPair):
         URL = "/api2/1/private/getOrder"
+        params = {'orderNumber': orderNumber, 'currencyPair': currencyPair}
         return httpPost(self.__url, URL, params, self.__apikey, self.__secretkey)
 
 
