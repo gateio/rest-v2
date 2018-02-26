@@ -13,17 +13,16 @@ public class StockClient {
 
 	public static void main(String[] args) throws HttpException, IOException {
 
-		String api_key = "";
-		String secret_key = "";
+		
 		String url_prex = "https://data.gate.io";
 
 		IStockRestApi stockGet = new StockRestApi(url_prex);
 
-		IStockRestApi stockPost = new StockRestApi(url_prex, api_key, secret_key);
+		IStockRestApi stockPost = new StockRestApi(url_prex);
 
 		// 所有交易对
-		// String pairs = stockGet.pairs();
-		// System.out.println(pairs);
+		 String pairs = stockGet.pairs();
+		 System.out.println(pairs);
 
 		// 交易市场订单参数
 		// String marketinfo = stockGet.marketinfo();
@@ -50,8 +49,8 @@ public class StockClient {
 		// System.out.println(tradeHistory);
 
 		// 获取帐号资金余额
-		// String balance = stockPost.balance();
-		// System.out.println(balance);
+//		 String balance = stockPost.balance();
+//		 System.out.println(balance);
 
 		// 获取充值地址
 		// String depositAddress = stockPost.depositAddress("btc");

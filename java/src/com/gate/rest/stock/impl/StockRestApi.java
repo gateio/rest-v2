@@ -15,17 +15,11 @@ import com.gate.rest.stock.IStockRestApi;
 
 public class StockRestApi implements IStockRestApi{
 
-	private String secret_key;
-	
-	private String api_key;
+
 	
 	private String url_prex;
 	
-	public StockRestApi(String url_prex,String api_key,String secret_key){
-		this.api_key = api_key;
-		this.secret_key = secret_key;
-		this.url_prex = url_prex;
-	}
+
 	
 	public StockRestApi(String url_prex){
 		this.url_prex = url_prex;
@@ -169,9 +163,6 @@ public class StockRestApi implements IStockRestApi{
 	@Override
 	public String balance() throws HttpException, IOException {
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("api_key", api_key);
-		String sign = MD5Util.buildMysignV1(params, this.secret_key);
-		params.put("sign", sign);
 
 		HttpUtilManager httpUtil = HttpUtilManager.getInstance();
 
@@ -301,25 +292,6 @@ public class StockRestApi implements IStockRestApi{
 
 
 
-
-
-
-	public String getSecret_key() {
-		return secret_key;
-	}
-
-	public void setSecret_key(String secret_key) {
-		this.secret_key = secret_key;
-	}
-
-
-	public String getApi_key() {
-		return api_key;
-	}
-
-	public void setApi_key(String api_key) {
-		this.api_key = api_key;
-	}
 
 	public String getUrl_prex() {
 		return url_prex;
