@@ -13,14 +13,14 @@ import (
 	"fmt"
 )
 
-const KEY  = "your api key"; // gate.io 申请
-const SECRET = "your api secret";  // gate.io 申请
+const KEY  = "your api key"; // gate.io api key
+const SECRET = "your api secret";  // gate.io api secret
 
 func main() {
 
-	// 方法调用
+	// Method call
 
-	// 获取系统支持所有交易对
+	// all pairs
 	var ret string = getPairs()
 	fmt.Println(ret)
 
@@ -28,7 +28,7 @@ func main() {
 
 }
 
-// 返回所有系统支持的交易对
+// all support pairs
 func getPairs() string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/pairs"
@@ -37,7 +37,7 @@ func getPairs() string {
 	return ret
 }
 
-// 所有系统支持的交易市场的参数信息
+// Market Info
 func marketinfo() string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/marketinfo"
@@ -47,7 +47,7 @@ func marketinfo() string {
 }
 
 
-// 返回所有系统支持的交易市场的详细行情和币种信息
+// Market Details
 func marketlist() string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/marketlist"
@@ -57,7 +57,7 @@ func marketlist() string {
 }
 
 
-// 所有交易行情
+// tickers
 func tickers() string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/tickers"
@@ -67,7 +67,7 @@ func tickers() string {
 }
 
 
-// 单项交易行情
+// ticker
 func ticker(ticker string) string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/ticker" + "/" + ticker
@@ -77,7 +77,7 @@ func ticker(ticker string) string {
 }
 
 
-// 市场深度
+// Depth 
 func orderBooks() string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/orderBooks"
@@ -87,7 +87,7 @@ func orderBooks() string {
 }
 
 
-// 单项市场深度
+// Depth of pair
 func orderBook(params string) string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/orderBook/" + params
@@ -97,7 +97,7 @@ func orderBook(params string) string {
 }
 
 
-// 历史成交记录
+// Trade History
 func tradeHistory(params string) string {
 	var method string = "GET"
 	var url string = "http://data.gate.io/api2/1/tradeHistory/" + params
@@ -107,7 +107,7 @@ func tradeHistory(params string) string {
 }
 
 
-// 获取账号资金余额
+// Get account fund balances 
 func balances() string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/balances"
@@ -118,7 +118,7 @@ func balances() string {
 
 
 
-// 获取充值地址
+// get deposit address
 func depositAddress(currency string) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/depositAddress"
@@ -128,7 +128,7 @@ func depositAddress(currency string) string {
 }
 
 
-// 获取充值提现历史
+// get deposit withdrawal history
 func depositsWithdrawals(start string, end string) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/depositsWithdrawals"
@@ -138,7 +138,7 @@ func depositsWithdrawals(start string, end string) string {
 }
 
 
-// 下单交易买入
+// Place order buy
 func buy(currencyPair string, rate string, amount string) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/buy"
@@ -147,7 +147,7 @@ func buy(currencyPair string, rate string, amount string) string {
 	return ret
 }
 
-// 下单交易卖出
+// Place order sell
 func sell(currencyPair string, rate string, amount string) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/sell"
@@ -157,7 +157,7 @@ func sell(currencyPair string, rate string, amount string) string {
 }
 
 
-// 取消下单
+// Cancel order
 func cancelOrder(orderNumber string, currencyPair string ) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/cancelOrder"
@@ -166,7 +166,7 @@ func cancelOrder(orderNumber string, currencyPair string ) string {
 	return ret
 }
 
-// 取消全部下单
+// Cancel all orders 
 func cancelAllOrders( types string, currencyPair string ) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/cancelAllOrders"
@@ -176,7 +176,7 @@ func cancelAllOrders( types string, currencyPair string ) string {
 }
 
 
-// 获取订单状态
+// Get order status
 func getOrder( orderNumber string, currencyPair string ) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/getOrder"
@@ -186,7 +186,7 @@ func getOrder( orderNumber string, currencyPair string ) string {
 }
 
 
-// 获取我的当前挂单列表
+// Get my open order list
 func openOrders() string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/openOrders"
@@ -206,7 +206,7 @@ func myTradeHistory( currencyPair string, orderNumber string) string {
 }
 
 
-// 获取我的24小时内成交记录
+// Get my last 24h trades
 func withdraw( currency string, amount string, address string) string {
 	var method string = "POST"
 	var url string = "https://api.gate.io/api2/1/private/withdraw"
@@ -224,7 +224,7 @@ func getSign( params string) string {
 }
 	
 /**
-*  http请求封装
+*  http request
 */	
 func httpDo(method string,url string, param string) string {
     client := &http.Client{}
