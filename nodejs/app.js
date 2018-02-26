@@ -1,18 +1,18 @@
 var gate = require('./lib/gate');
 
-// 获取所有交易对
+// Trading Pairs
 gate.getPairs(function (res) {
     console.log(res);
 });
 
 
-//交易市场订单参数
+//Market Info
 // gate.getMarketinfo(function (res) {
 //     console.log(res);
 // });
 
 
-//交易市场详细行情
+//Market Details
 // gate.getMarketlist(function (res) {
 //     console.log(res);
 // });
@@ -24,87 +24,87 @@ gate.getPairs(function (res) {
 // });
 
 
-//单项交易行情
+//Ticker
 // gate.getTicker('eth_btc',function (res) {
 //     console.log(res);
 // });
 
 
-// 市场深度
+// Depth
 // gate.orderBooks(function (res) {
 //     console.log(res);
 // });
 
 
-// 指定市场深度
+// Depth of pair
 // gate.orderBook('etc_btc',function (res) {
 //     console.log(res);
 // });
 
 
-// 历史成交记录
+// Trade History
 // gate.tradeHistory('etc_btc',function (res) {
 //     console.log(res);
 // });
 
 
-// 获取资金余额
+// Get account fund balances
 // gate.getBalances(function (res) {
 //     console.log(res);
 // });
 
 
-// 获取充值地址
+// get deposit address
 // gate.depositAddress('btc',function (res) {
 //     console.log(res);
 // });
 
 
-// 获取充值提现历史
+// get deposit withdrawal history
 // gate.depositsWithdrawals('1508225535','1508311935',function (res) {
 //     console.log(res);
 // });
 
-// 下单交易买入
+// Place order buy
 // gate.buy('etc_btc','0.001',	'0.876',function (res) {
 //     console.log(res);
 // });
 
 
-// 下单交易卖出
+// Place order sell
 // gate.sell('etc_btc','0.02','3',function (res) {
 //     console.log(res);
 // });
 
-//取消下单
+//Cancel order
 // gate.cancelOrder('267040896','etc_btc', function (res) {
 //     console.log(res);
 // });
 
-// 取消所有下单
+// Cancel all orders
 // gate.cancelAllOrders('1', 'etc_btc', function (res) {
 //     console.log(res);
 // });
 
-//获取下单状态
+//Get order status
 // gate.getOrder('267040896', 'etc_btc', function (res) {
 //     console.log(res);
 // });
 
 
-//获取我的当前挂单列表
+//Get my open order list
 // gate.openOrders( function (res) {
 //     console.log(res);
 // });
 
 
-//获取我的24小时内成交记录
+//Get my last 24h trades
 // gate.myTradeHistory('etc_btc','267040896', function (res) {
 //     console.log(res);
 // });
 
 
-// 提现
+// withdrawal 
 // gate.withdraw('btc','123', '1CGJ7kWYC8fHYShC4m8Wy9j9BfrD9fLn58', function (res) {
 //     console.log(res);
 // });
