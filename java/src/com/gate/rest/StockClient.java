@@ -14,82 +14,84 @@ public class StockClient {
 	public static void main(String[] args) throws HttpException, IOException {
 
 		
-		String url_prex = "https://data.gate.io";
+		String query_url = "https://data.gate.io";
+		String trade_url = "https://api.gate.io";
 
-		IStockRestApi stockGet = new StockRestApi(url_prex);
 
-		IStockRestApi stockPost = new StockRestApi(url_prex);
+		IStockRestApi stockGet = new StockRestApi(query_url);
 
-		// 所有交易对
+		IStockRestApi stockPost = new StockRestApi(trade_url);
+
+		// All trading Pairs
 		 String pairs = stockGet.pairs();
 		 System.out.println(pairs);
 
-		// 交易市场订单参数
+		// Market Info
 		// String marketinfo = stockGet.marketinfo();
 		// System.out.println(marketinfo);
 
-		// 交易市场详细行情
+		// Market Details
 		// String marketlist = stockGet.marketlist();
 		// System.out.println(marketlist);
 
-		// 所有交易行情
-		// String tickers = stockGet.tickers();
-		// System.out.println(tickers);
+		// Tickers 
+//		 String tickers = stockGet.tickers();
+//		 System.out.println(tickers);
 
-		// 单项交易行情
+		// Ticker 
 		// String ticker = stockGet.ticker("eth_btc");
 		// System.out.println(ticker);
 
-		// 市场深度
+		// Depth
 		// String orderBook = stockGet.orderBook("eth_btc");
 		// System.out.println(orderBook);
 
-		// 历史成交记录
+		// Trade History
 		// String tradeHistory = stockGet.tradeHistory("eth_btc");
 		// System.out.println(tradeHistory);
 
-		// 获取帐号资金余额
+		// Get account fund balances
 //		 String balance = stockPost.balance();
 //		 System.out.println(balance);
 
-		// 获取充值地址
+		// get deposit address
 		// String depositAddress = stockPost.depositAddress("btc");
 		// System.out.println(depositAddress);
 
-		// 获取充值提现历史
+		// get deposit withdrawal history 
 		// String depositsWithdrawals = stockPost.depositsWithdrawals("1469092370",
 		// "1669092370");
 		// System.out.println(depositsWithdrawals);
 
-		// 下单买入
+		// Place order buy
 		// String buy = stockPost.buy("ltc_btc", "999","123");
 		// System.out.println(buy);
 
-		// 下单卖出
+		// Place order sell
 		// String sell = stockPost.sell("ltc_btc", "999","123");
 		// System.out.println(sell);
 
-		// 取消下单
+		// Cancel order
 		// String cancelOrder = stockPost.cancelOrder("123456789", "ltc_btc");
 		// System.out.println(cancelOrder);
 
-		// 取消所有下单
+		// Cancel all orders
 		// String cancelAllOrders = stockPost.cancelAllOrders("1", "ltc_btc");
 		// System.out.println(cancelAllOrders);
 
-		// 获取下单状态
+		// Get order status
 		// String getOrder = stockPost.getOrder("123456789", "ltc_btc");
 		// System.out.println(getOrder);
 
-		// 获取当前挂单列表
+		// Get my open order list
 		// String openOrders = stockPost.openOrders();
 		// System.out.println(openOrders);
 
-		// 获取我的24小时内成交记录
+		// Get my last 24h trades
 		// String myTradeHistory = stockPost.myTradeHistory("eth_btc","123456789");
 		// System.out.println(myTradeHistory);
 
-		// 提现
+		// withdrawal 
 		// String withdraw = stockPost.withdraw("btc","99","your addr");
 		// System.out.println(withdraw);
 
