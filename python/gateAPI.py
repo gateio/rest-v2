@@ -107,7 +107,8 @@ class GateIO:
     # 获取下单状态
     def getOrder(self, orderNumber, currencyPair):
         URL = "/api2/1/private/getOrder"
-        return httpPost(self.__url, URL, params, self.__apiKey, self.__secretKey)
+        params = {'orderNumber': orderNumber, 'currencyPair': currencyPair}
+        return httpPost(self.__url, URL, params, self.__apikey, self.__secretkey)
 
     # 获取我的当前挂单列表
     def openOrders(self):
