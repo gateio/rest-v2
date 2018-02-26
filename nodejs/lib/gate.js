@@ -21,6 +21,7 @@ const BALANCE_URL = 'api2/1/private/balances';
 const DEPOSITADDRESS_URL = 'api2/1/private/depositAddress';
 const DEPOSITSWITHDRAWALS_URL = 'api2/1/private/depositsWithdrawals';
 const BUY_URL = 'api2/1/private/buy';
+const SELL_URL = 'api2/1/private/sell';
 const CANCELORDER_URL = 'api2/1/private/cancelOrder';
 const CANCELALLORDERS_URL = 'api2/1/private/cancelAllOrders';
 const GETORDER_URL = 'api2/1/private/getOrder';
@@ -120,7 +121,7 @@ var gate = {
         let header = {};
         header.KEY = KEY;
         header.SIGN = getSign(querystring.stringify(form));
-        Request({method: 'POST', url: API_TRADE_URL + BUY_URL, headers: header, form:form },cp);
+        Request({method: 'POST', url: API_TRADE_URL + SELL_URL, headers: header, form:form },cp);
     },
 
     cancelOrder:function (orderNumber, currencyPair , cp) {
