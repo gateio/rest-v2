@@ -29,7 +29,7 @@
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36');
 		}
 
-		curl_setopt($ch, CURLOPT_URL, 'http://api.gate.io/api2/'.$path);
+		curl_setopt($ch, CURLOPT_URL, 'http://api.gateio.io/api2/'.$path);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -61,7 +61,7 @@
 				'Mozilla/4.0 (compatible; gate PHP bot; '.php_uname('a').'; PHP/'.phpversion().')'
 				);
 		}
-		curl_setopt($ch, CURLOPT_URL, 'https://data.gate.io/api2/'.$url);
+		curl_setopt($ch, CURLOPT_URL, 'https://data.gateio.io/api2/'.$url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
 		// run the query
