@@ -31,7 +31,7 @@ func main() {
 // all support pairs
 func getPairs() string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/pairs"
+	var url string = "http://data.gateio.io/api2/1/pairs"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -40,7 +40,7 @@ func getPairs() string {
 // Market Info
 func marketinfo() string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/marketinfo"
+	var url string = "http://data.gateio.io/api2/1/marketinfo"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -50,7 +50,7 @@ func marketinfo() string {
 // Market Details
 func marketlist() string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/marketlist"
+	var url string = "http://data.gateio.io/api2/1/marketlist"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -60,7 +60,7 @@ func marketlist() string {
 // tickers
 func tickers() string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/tickers"
+	var url string = "http://data.gateio.io/api2/1/tickers"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -70,7 +70,7 @@ func tickers() string {
 // ticker
 func ticker(ticker string) string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/ticker" + "/" + ticker
+	var url string = "http://data.gateio.io/api2/1/ticker" + "/" + ticker
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -80,7 +80,7 @@ func ticker(ticker string) string {
 // Depth 
 func orderBooks() string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/orderBooks"
+	var url string = "http://data.gateio.io/api2/1/orderBooks"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -90,7 +90,7 @@ func orderBooks() string {
 // Depth of pair
 func orderBook(params string) string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/orderBook/" + params
+	var url string = "http://data.gateio.io/api2/1/orderBook/" + params
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -100,7 +100,7 @@ func orderBook(params string) string {
 // Trade History
 func tradeHistory(params string) string {
 	var method string = "GET"
-	var url string = "http://data.gate.io/api2/1/tradeHistory/" + params
+	var url string = "http://data.gateio.io/api2/1/tradeHistory/" + params
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -110,7 +110,7 @@ func tradeHistory(params string) string {
 // Get account fund balances 
 func balances() string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/balances"
+	var url string = "https://api.gateio.io/api2/1/private/balances"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -121,7 +121,7 @@ func balances() string {
 // get deposit address
 func depositAddress(currency string) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/depositAddress"
+	var url string = "https://api.gateio.io/api2/1/private/depositAddress"
 	var param string = "currency=" + currency
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -131,7 +131,7 @@ func depositAddress(currency string) string {
 // get deposit withdrawal history
 func depositsWithdrawals(start string, end string) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/depositsWithdrawals"
+	var url string = "https://api.gateio.io/api2/1/private/depositsWithdrawals"
 	var param string = "start=" + start + "&end=" + end
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -141,7 +141,7 @@ func depositsWithdrawals(start string, end string) string {
 // Place order buy
 func buy(currencyPair string, rate string, amount string) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/buy"
+	var url string = "https://api.gateio.io/api2/1/private/buy"
 	var param string = "currencyPair=" + currencyPair + "&rate=" + rate + "&amount=" + amount
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -150,7 +150,7 @@ func buy(currencyPair string, rate string, amount string) string {
 // Place order sell
 func sell(currencyPair string, rate string, amount string) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/sell"
+	var url string = "https://api.gateio.io/api2/1/private/sell"
 	var param string = "currencyPair=" + currencyPair + "&rate=" + rate + "&amount=" + amount
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -160,7 +160,7 @@ func sell(currencyPair string, rate string, amount string) string {
 // Cancel order
 func cancelOrder(orderNumber string, currencyPair string ) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/cancelOrder"
+	var url string = "https://api.gateio.io/api2/1/private/cancelOrder"
 	var param string = "orderNumber=" + orderNumber + "&currencyPair=" + currencyPair
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -169,7 +169,7 @@ func cancelOrder(orderNumber string, currencyPair string ) string {
 // Cancel all orders 
 func cancelAllOrders( types string, currencyPair string ) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/cancelAllOrders"
+	var url string = "https://api.gateio.io/api2/1/private/cancelAllOrders"
 	var param string = "type=" + types + "&currencyPair=" + currencyPair
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -179,7 +179,7 @@ func cancelAllOrders( types string, currencyPair string ) string {
 // Get order status
 func getOrder( orderNumber string, currencyPair string ) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/getOrder"
+	var url string = "https://api.gateio.io/api2/1/private/getOrder"
 	var param string = "orderNumber=" + orderNumber + "&currencyPair=" + currencyPair
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -189,7 +189,7 @@ func getOrder( orderNumber string, currencyPair string ) string {
 // Get my open order list
 func openOrders() string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/openOrders"
+	var url string = "https://api.gateio.io/api2/1/private/openOrders"
 	var param string = ""
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -199,7 +199,7 @@ func openOrders() string {
 // 获取我的24小时内成交记录
 func myTradeHistory( currencyPair string, orderNumber string) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/tradeHistory"
+	var url string = "https://api.gateio.io/api2/1/private/tradeHistory"
 	var param string = "orderNumber=" + orderNumber + "&currencyPair=" + currencyPair
 	var ret string = httpDo(method,url,param)
 	return ret
@@ -209,7 +209,7 @@ func myTradeHistory( currencyPair string, orderNumber string) string {
 // Get my last 24h trades
 func withdraw( currency string, amount string, address string) string {
 	var method string = "POST"
-	var url string = "https://api.gate.io/api2/1/private/withdraw"
+	var url string = "https://api.gateio.io/api2/1/private/withdraw"
 	var param string = "currency=" + currency + "&amount=" + amount + "address=" + address
 	var ret string = httpDo(method,url,param)
 	return ret
