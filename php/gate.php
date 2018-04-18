@@ -190,11 +190,12 @@
 		);
 	}
 	
-	function cancel_order($order_number) {
+	function cancel_order($order_number, $currency_pair) {
 		
 		return gate_query('1/private/cancelOrder',
 			array(
-				'orderNumber' => $order_number
+				'orderNumber' => $order_number,
+				'currencyPair' => strtoupper($currency_pair)
 			)
 		);
 	}
@@ -350,7 +351,7 @@ try {
 
 
     //取消下单
-//    print_r(cancel_order(263393711));
+//    print_r(cancel_order(263393711), 'etc_btc');
 
 
     //取消所有下单
