@@ -181,11 +181,12 @@
 		);
 	}
 	
-	function get_order($order_number) {
+	function get_order($order_number, $currency_pair) {
 		
 		return gate_query('1/private/getOrder',
 			array(
-				'orderNumber' => $order_number
+				'orderNumber' => $order_number,
+				'currencyPair' => strtoupper($currency_pair)
 			)
 		);
 	}
@@ -359,7 +360,7 @@ try {
 
 
     //获取下单状态
-//    print_r(get_order(263393711));
+//    print_r(get_order(263393711, 'etc_btc'));
 
 
     //获取我的当前挂单列表
