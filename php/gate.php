@@ -13,7 +13,7 @@
 
 		// generate the POST data string
 		$post_data = http_build_query($req, '', '&');
-		$sign = hash_hmac('sha512', $post_data, $secret);
+		$sign = hash_hmac('sha512', urldecode($post_data), $secret);
 
 		// generate the extra headers
 		$headers = array(
