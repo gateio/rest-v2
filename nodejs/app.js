@@ -6,19 +6,19 @@ gate.getPairs(function (res) {
 });
 
 
-//Market Info
+// Market Info
 // gate.getMarketinfo(function (res) {
 //     console.log(res);
 // });
 
 
-//Market Details
+// Market Details
 // gate.getMarketlist(function (res) {
 //     console.log(res);
 // });
 
 
-//所有交易行情
+// Tickers for all the supported trading pairs
 // gate.getTickers(function (res) {
 //     console.log(res);
 // });
@@ -76,7 +76,7 @@ gate.getPairs(function (res) {
 //     console.log(res);
 // });
 
-//Cancel order
+// Cancel order
 // gate.cancelOrder('267040896','etc_btc', function (res) {
 //     console.log(res);
 // });
@@ -86,7 +86,7 @@ gate.getPairs(function (res) {
 //     console.log(res);
 // });
 
-//Get order status
+// Get order status
 // gate.getOrder('267040896', 'etc_btc', function (res) {
 //     console.log(res);
 // });
@@ -98,7 +98,7 @@ gate.getPairs(function (res) {
 // });
 
 
-//Get my last 24h trades
+// Get my last 24h trades
 // gate.myTradeHistory('etc_btc','267040896', function (res) {
 //     console.log(res);
 // });
