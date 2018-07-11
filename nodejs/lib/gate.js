@@ -42,8 +42,9 @@ function Request (params,cp){
         }
     });
 }
-function getSign(form) {
-    return crypto.createHmac('sha512', SECRET).update(form).digest('hex').toString();
+function getSign(str) {
+    let unescapeStr = querystring.unescape(str);
+    return crypto.createHmac('sha512', SECRET).update(unescapeStr).digest('hex').toString();
 }
 
 var gate = {
