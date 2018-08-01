@@ -1,0 +1,7 @@
+gate.io 为用户提供了新版api  CSharp使用示例
+
+使用须知：
+     1、使用用例请配置 HttpUtilManager.cs  
+         
+		private static String SECRET = ""; //gate.io 申请的API Secret
+        private static String KEY = ""; //gate.io 申请的API Key		
