@@ -8,8 +8,7 @@
 		$secret = "your api secret";
 
 		// generate a nonce as microtime, with as-string handling to avoid problems with 32bits systems
-		$mt = explode(' ', microtime());
-		$req['nonce'] = $mt[1].substr($mt[0], 2, 6);
+		$req['nonce'] = microtime(true)*10000;
 
 		// generate the POST data string
 		$post_data = http_build_query($req, '', '&');
