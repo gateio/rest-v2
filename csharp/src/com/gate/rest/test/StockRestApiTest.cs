@@ -17,7 +17,7 @@ namespace Com.Gate.Rest.Test
 
         static void Main(string[] args)
         {
-            Console.Write(testMyTradeHistory("eth_usdt", "1HkxtBAMrA3tP5ENnYY2CZortjZvFDH5Cs"));
+            Console.Write(testMyTradeHistory("eth_usdt", "12345"));
         }
 
         private String testPairs()
@@ -64,67 +64,67 @@ namespace Com.Gate.Rest.Test
 
         private String testDepositAddress(String symbol)
         {
-            String depositAddress = stockGet.depositAddress(symbol);
+            String depositAddress = stockPost.depositAddress(symbol);
             return depositAddress;
         }
 
         private String testDepositsWithdrawals(String startTime, String endTime)
         {
-            String depositsWithdrawals = depositsWithdrawals = stockGet.depositsWithdrawals(startTime, endTime);
+            String depositsWithdrawals = depositsWithdrawals = stockPost.depositsWithdrawals(startTime, endTime);
             return depositsWithdrawals;
         }
 
         private String testBuy(String currencyPair, String rate, String amount)
         {
-            String buy = stockGet.buy(currencyPair, rate, amount);
+            String buy = stockPost.buy(currencyPair, rate, amount);
             return buy;
         }
 
         private String testSell(String currencyPair, String rate, String amount)
         {
-            String sell = stockGet.sell(currencyPair, rate, amount);
+            String sell = stockPost.sell(currencyPair, rate, amount);
             return sell;
         }
 
         private String testCancelOrder(String orderNumber, String currencyPair)
         {
-            String cancelOrder = stockGet.cancelOrder(orderNumber, currencyPair);
+            String cancelOrder = stockPost.cancelOrder(orderNumber, currencyPair);
             return cancelOrder;
         }
 
         private String testCancelOrders(String ordersJson)
         {
-            String cancelOrder = stockGet.cancelOrders(ordersJson); ;
+            String cancelOrder = stockPost.cancelOrders(ordersJson); ;
             return cancelOrder;
         }
 
         private String testCancelAllOrders(String type, String currencyPair)
         {
-            String cancelAllOrders = stockGet.cancelAllOrders(type, currencyPair);
+            String cancelAllOrders = stockPost.cancelAllOrders(type, currencyPair);
             return cancelAllOrders;
         }
 
         private String testGetOrder(String orderNumber, String currencyPair)
         {
-            String getOrder = stockGet.getOrder(orderNumber, currencyPair);
+            String getOrder = stockPost.getOrder(orderNumber, currencyPair);
             return getOrder;
         }
 
         private String testOpenOrders(String currencyPair)
         {
-            String openOrders = stockGet.openOrders(currencyPair);
+            String openOrders = stockPost.openOrders(currencyPair);
             return openOrders;
         }
 
         private static String testMyTradeHistory(String currencyPair, String orderNumber)
         {
-            String myTradeHistory = stockGet.myTradeHistory(currencyPair, orderNumber);
+            String myTradeHistory = stockPost.myTradeHistory(currencyPair, orderNumber);
             return myTradeHistory;
         }
 
         private static String testWithdraw(String currency, String amount, String address)
         {
-            String withdraw = stockGet.withdraw(currency, amount, address);
+            String withdraw = stockPost.withdraw(currency, amount, address);
             return withdraw;
         }
 
