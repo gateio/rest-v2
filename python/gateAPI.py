@@ -20,6 +20,12 @@ class GateIO:
         URL = "/api2/1/pairs"
         params=''
         return httpGet(self.__url, URL, params)
+    
+    #所有货币
+    def coins_info(self):
+        URL = "/api2/1/coininfo"
+        params = ''
+        return httpGet(self.__url, URL, params)
 
     #市场订单参数
     def marketinfo(self):
