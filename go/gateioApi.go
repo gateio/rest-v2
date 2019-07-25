@@ -210,7 +210,7 @@ func myTradeHistory( currencyPair string, orderNumber string) string {
 func withdraw( currency string, amount string, address string) string {
 	var method string = "POST"
 	var url string = "https://api.gateio.io/api2/1/private/withdraw"
-	var param string = "currency=" + currency + "&amount=" + amount + "address=" + address
+	var param string = "currency=" + currency + "&amount=" + amount + "&address=" + address
 	var ret string = httpDo(method,url,param)
 	return ret
 }
