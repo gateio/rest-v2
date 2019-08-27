@@ -17,8 +17,8 @@ btcAddress = 'your btc address'
 
 ## Provide constants
 
-API_QUERY_URL = 'data.gateio.io'
-API_TRADE_URL = 'api.gateio.io'
+API_QUERY_URL = 'data.gateio.co'
+API_TRADE_URL = 'api.gateio.co'
 
 ## Create a gate class instance
 
