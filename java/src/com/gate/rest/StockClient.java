@@ -14,8 +14,8 @@ public class StockClient {
 	public static void main(String[] args) throws HttpException, IOException {
 
 		
-		String query_url = "https://data.gateio.io";
-		String trade_url = "https://api.gateio.io";
+		String query_url = "https://data.gateio.co";
+		String trade_url = "https://api.gateio.co";
 
 
 		IStockRestApi stockGet = new StockRestApi(query_url);
