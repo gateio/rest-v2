@@ -9,8 +9,8 @@ use Mojo::Base -base;
 use Mojo::UserAgent;
 use Digest::SHA qw(hmac_sha512_hex);
 
-use constant API_QUERY => 'https://data.gateio.io';
-use constant API_TRADE => 'https://api.gateio.io';
+use constant API_QUERY => 'https://data.gateio.co';
+use constant API_TRADE => 'https://api.gateio.co';
 use constant {
     URL_PAIRS => '/api2/1/pairs',
     URL_MARKET_INFO => '/api2/1/marketinfo',
@@ -39,58 +39,58 @@ has 'api_key';
 has 'secret_key';
 has ua => sub { Mojo::UserAgent->new };
 
-# ËùÓĞ½»Ò×¶Ô
+# æ‰€æœ‰äº¤æ˜“å¯¹
 sub pairs {
     shift->ua->get(API_QUERY . URL_PAIRS)->res->json;
 }
 
-# ÊĞ³¡¶©µ¥²ÎÊı
+# å¸‚åœºè®¢å•å‚æ•°
 sub market_info {
     shift->ua->get(API_QUERY . URL_MARKET_LIST)->res->json;
 }
 
-# ½»Ò×ÊĞ³¡ÏêÏ¸ĞĞÇé
+# äº¤æ˜“å¸‚åœºè¯¦ç»†è¡Œæƒ…
 sub market_list {
     shift->ua->get(API_QUERY . URL_MARKET_LIST)->res->json;
 }
 
-# ËùÓĞ½»Ò×ĞĞÇé
+# æ‰€æœ‰äº¤æ˜“è¡Œæƒ…
 sub tickers {
     shift->ua->get(API_QUERY . URL_TICKERS)->res->json;
 }
 
-# µ¥Ïî½»Ò×ĞĞÇé
+# å•é¡¹äº¤æ˜“è¡Œæƒ…
 sub ticker {
     my $self = shift;
-    my $param = shift; # ½»Ò×¶ÔÃû³Æ
+    my $param = shift; # äº¤æ˜“å¯¹åç§°
     $self->ua->get(API_QUERY . URL_TICKER . '/' . $param)->res->json;
 }
 
-# ËùÓĞ½»Ò×¶ÔÊĞ³¡Éî¶È
+# æ‰€æœ‰äº¤æ˜“å¯¹å¸‚åœºæ·±åº¦
 sub order_books {
     shift->ua->get(API_QUERY . URL_ORDER_BOOKS)->res->json;
 }
 
-# µ¥Ïî½»Ò×¶ÔÊĞ³¡Éî¶È
+# å•é¡¹äº¤æ˜“å¯¹å¸‚åœºæ·±åº¦
 sub order_book {
     my $self = shift;
-    my $param = shift; # ½»Ò×¶ÔÃû³Æ
+    my $param = shift; # äº¤æ˜“å¯¹åç§°
     $self->ua->get(API_QUERY . URL_ORDER_BOOK . '/' . $param)->res->json;
 }
 
-# ÀúÊ·³É½»¼ÇÂ¼
+# å†å²æˆäº¤è®°å½•
 sub trade_history {
     my $self = shift;
-    my $param = shift; # ½»Ò×¶ÔÃû³Æ
+    my $param = shift; # äº¤æ˜“å¯¹åç§°
     my $tid = shift;
     $param .= "/$tid" if defined $tid and $tid =~ /^\d+$/;
     $self->ua->get(API_QUERY . URL_TRADE_HISTORY . '/' . $param)->res->json;
 }
 
-# ½»Ò×ÊĞ³¡KÏßÊı¾İ
+# äº¤æ˜“å¸‚åœºKçº¿æ•°æ®
 sub candlestick {
     my $self = shift;
-    my $param = shift; # ½»Ò×¶ÔÃû³Æ
+    my $param = shift; # äº¤æ˜“å¯¹åç§°
     my $group_sec = shift;
     my $rang_hour = shift;
 
@@ -101,7 +101,7 @@ sub candlestick {
     $self->ua->get(API_QUERY . URL_TRADE_HISTORY . $q)->res->json;
 }
 
-# »ñÈ¡ÕÊºÅ×Ê½ğÓà¶î
+# è·å–å¸å·èµ„é‡‘ä½™é¢
 sub balances {
     my $self = shift;
     my $params = {};
@@ -229,7 +229,7 @@ package main;
 use strict;
 use Data::Dumper;
 
-# ÉèÖÃAPI Key£¬Secret Key
+# è®¾ç½®API Keyï¼ŒSecret Key
 my $api_key = 'your api key';
 my $secret_key = 'your secret key';
 
