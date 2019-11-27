@@ -135,7 +135,7 @@ public class StockRestApi implements IStockRestApi{
 	public String orderBook(String symbol) throws HttpException, IOException {
 		HttpUtilManager httpUtil = HttpUtilManager.getInstance();
 		String param = "";
-		if(!StringUtil.isEmpty(symbol )) {
+		if(!StringUtil.isEmpty(symbol)) {
 			if(param.equals("")) {
 				param += "/";
 			}
@@ -174,7 +174,8 @@ public class StockRestApi implements IStockRestApi{
 	@Override
 	public String depositAddress(String symbol) throws HttpException, IOException {
 		Map<String, String> params = new HashMap<String, String>();
-
+		params.put('currency', symbol);
+		
 		HttpUtilManager httpUtil = HttpUtilManager.getInstance();
 		String result = httpUtil.doRequest( "data", "post", url_prex+DEPOSITADDRESS_URL, params );
 		return result;
@@ -186,7 +187,6 @@ public class StockRestApi implements IStockRestApi{
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("start", startTime);
 		params.put("end", endTime);
-
 
 		HttpUtilManager httpUtil = HttpUtilManager.getInstance();
 		String result = httpUtil.doRequest( "data", "post", url_prex+ DEPOSITESWITHDRAWALS_URL, params );
