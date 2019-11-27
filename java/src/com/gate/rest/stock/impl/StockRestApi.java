@@ -174,7 +174,7 @@ public class StockRestApi implements IStockRestApi{
 	@Override
 	public String depositAddress(String symbol) throws HttpException, IOException {
 		Map<String, String> params = new HashMap<String, String>();
-		params.put('currency', symbol);
+		params.put("currency", symbol);
 		
 		HttpUtilManager httpUtil = HttpUtilManager.getInstance();
 		String result = httpUtil.doRequest( "data", "post", url_prex+DEPOSITADDRESS_URL, params );
