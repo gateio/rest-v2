@@ -1,7 +1,7 @@
 <?php
-	
+
 	function gate_query($path, array $req = array()) {
-		
+
 		// API settings, add your Key and Secret at here
 
         $key = "your api key";
@@ -29,7 +29,7 @@
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36');
 		}
 
-		curl_setopt($ch, CURLOPT_URL, 'http://api.gateio.co/api2/'.$path);
+		curl_setopt($ch, CURLOPT_URL, 'http://api.gateio.life/api2/'.$path);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -48,20 +48,20 @@
 
 		return $dec;
 	}
- 
-	
+
+
 	function curl_file_get_contents($url) {
-		
+
 		// our curl handle (initialize if required)
 		static $ch = null;
 		if (is_null($ch)) {
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_USERAGENT, 
+			curl_setopt($ch, CURLOPT_USERAGENT,
 				'Mozilla/4.0 (compatible; gate PHP bot; '.php_uname('a').'; PHP/'.phpversion().')'
 				);
 		}
-		curl_setopt($ch, CURLOPT_URL, 'https://data.gateio.io/api2/'.$url);
+		curl_setopt($ch, CURLOPT_URL, 'https://data.gateio.life/api2/'.$url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 
 		// run the query
@@ -69,15 +69,15 @@
 		if ($res === false) throw new Exception('Could not get reply: '.curl_error($ch));
 		$dec = json_decode($res, true);
 		if (!$dec) throw new Exception('Invalid data: '.$res);
-		
+
 		return $dec;
 	}
 
 	function get_top_rate($currency_pair, $type='BUY') {
-		
+
 		$url = '1/orderBook/'.strtoupper($currency_pair);
 		$json = curl_file_get_contents($url);
-		
+
 		$rate = 0;
 
 		if (strtoupper($type) == 'BUY') {
@@ -89,22 +89,22 @@
 		}
 
 		return $rate;
-	}	
-	
+	}
+
 	function get_pairs() {
-		
+
 		$url = '1/pairs';
 		$json = curl_file_get_contents($url);
-		
-		return $json;		
+
+		return $json;
 	}
 
 	function get_marketinfo(){
-		
+
 		$url = '1/marketinfo';
 		$json = curl_file_get_contents($url);
-		
-		return $json;		
+
+		return $json;
 	}
 
 
@@ -117,61 +117,61 @@
     }
 
 	function get_tickers(){
-		
+
 		$url = '1/tickers';
 		$json = curl_file_get_contents($url);
-		
-		return $json;		
+
+		return $json;
 	}
-	 
+
 	function get_ticker($current_pairs){
-		
+
 		$url = '1/ticker/'.strtoupper($current_pairs);
 		$json = curl_file_get_contents($url);
-		
-		return $json;		
+
+		return $json;
 	}
-	 
+
 	function get_orderbooks(){
-		
+
 		$url = '1/orderBooks';
 		$json = curl_file_get_contents($url);
-		
+
 		return $json;
 	}
-	 
+
 	function get_orderbook($current_pairs){
-		
+
 		$url = '1/orderBook/'.strtoupper($current_pairs);
 		$json = curl_file_get_contents($url);
-		
+
 		return $json;
 	}
-	 
+
 	function get_trade_history($current_pairs, $tid){
-		
+
 		$url = '1/tradeHistory/'.strtoupper($current_pairs).'/'.$tid;
 		$json = curl_file_get_contents($url);
-		
+
 		return $json;
-	}	
-	
+	}
+
 	function get_balances() {
-		
+
 		return gate_query('1/private/balances');
 	}
-	
+
 	function get_order_trades($order_number) {
-		
+
 		return gate_query('1/private/orderTrades',
 			array(
 				'orderNumber' => $order_number
 			)
 		);
 	}
-	
+
 	function withdraw($currency, $amount, $address) {
-		
+
 		return gate_query('1/private/withdraw',
 			array(
 				'currency' => strtoupper($currency),
@@ -180,9 +180,9 @@
 			)
 		);
 	}
-	
+
 	function get_order($order_number, $currency_pair) {
-		
+
 		return gate_query('1/private/getOrder',
 			array(
 				'orderNumber' => $order_number,
@@ -190,9 +190,9 @@
 			)
 		);
 	}
-	
+
 	function cancel_order($order_number, $currency_pair) {
-		
+
 		return gate_query('1/private/cancelOrder',
 			array(
 				'orderNumber' => $order_number,
@@ -207,9 +207,9 @@
            ['orders_json'=>json_encode( $orders)]
         );
     }
-	
+
 	function cancel_all_orders($type, $currency_pair) {
-		
+
 		return gate_query('1/private/cancelAllOrders',
 			array(
 				'type' => $type,
@@ -217,9 +217,9 @@
 			)
 		);
 	}
-	
+
 	function sell($currency_pair, $rate, $amount) {
-		
+
 		return gate_query('1/private/sell',
 			array(
 				'currencyPair' => strtoupper($currency_pair),
@@ -228,9 +228,9 @@
 			)
 		);
 	}
-	
+
 	function buy($currency_pair, $rate, $amount) {
-		
+
 		return gate_query('1/private/buy',
 			array(
 				'currencyPair' => strtoupper($currency_pair),
@@ -239,9 +239,9 @@
 			)
 		);
 	}
-	
+
 	function get_my_trade_history($currency_pair, $order_number) {
-		
+
 		return gate_query('1/private/tradeHistory',
 			array(
 				'currencyPair' => strtoupper($currency_pair),
@@ -249,17 +249,17 @@
 			)
 		);
 	}
-	
+
 	function open_orders($currency_pair='') {
-		
+
 		return gate_query('1/private/openOrders',
 		array(
 				'currencyPair' => strtoupper($currency_pair)
 			));
 	}
-	
+
 	function deposites_withdrawals($start, $end) {
-		
+
 		return gate_query('1/private/depositsWithdrawals',
 			array(
 				'start' => $start,
@@ -267,28 +267,28 @@
 			)
 		);
 	}
-	
+
 	function new_adddress($currency) {
-		
+
 		return gate_query('1/private/newAddress',
 			array(
 				'currency' => strtoupper($currency)
 			)
 		);
 	}
-	
+
 	function deposit_address($currency) {
-		
+
 		return gate_query('1/private/depositAddress',
 			array(
 				'currency' => strtoupper($currency)
 			)
 		);
 	}
-	
+
 	function check_username($username, $phone, $sign) {
-		
-		
+
+
 		return gate_query('1/checkUsername',
 			array(
 				'username' => $username,
@@ -297,7 +297,7 @@
 			)
 		);
 	}
-	
+
 try {
 
 /*** public API methods examples ***/
@@ -328,7 +328,7 @@ try {
     //    print_r(get_trade_history('btc_usdt', 1000));
 
 
-	
+
 /*** private API methods examples ***/
 
 
@@ -377,5 +377,5 @@ try {
 
 } catch (Exception $e) {
 	echo "Error:".$e->getMessage();
-} 
+}
 ?>

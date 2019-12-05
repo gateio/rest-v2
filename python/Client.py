@@ -8,19 +8,20 @@ Provide user specific data and interact with gate.io
 
 from gateAPI import GateIO
 
-## 填写 apiKey APISECRET
+# 填写 apiKey APISECRET
 apiKey = 'your api key'
 secretKey = 'your api secret'
-## address
+
+# address
 btcAddress = 'your btc address'
 
 
-## Provide constants
+# Provide constants
 
-API_QUERY_URL = 'data.gateio.co'
-API_TRADE_URL = 'api.gateio.co'
+API_QUERY_URL = 'data.gateio.life'
+API_TRADE_URL = 'api.gateio.life'
 
-## Create a gate class instance
+# Create a gate class instance
 
 gate_query = GateIO(API_QUERY_URL, apiKey, secretKey)
 gate_trade = GateIO(API_TRADE_URL, apiKey, secretKey)
@@ -30,7 +31,7 @@ gate_trade = GateIO(API_TRADE_URL, apiKey, secretKey)
 print(gate_query.pairs())
 
 
-## Below, use general methods that query the exchange
+# Below, use general methods that query the exchange
 
 #  Market Info
 # print(gate_query.marketinfo())
@@ -47,7 +48,7 @@ print(gate_query.pairs())
 # print(gate_query.openOrders())
 
 
-## Below, use methods that make use of the users keys
+# Below, use methods that make use of the users keys
 
 # Ticker
 # print(gate_query.ticker('btc_usdt'))

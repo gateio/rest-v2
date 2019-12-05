@@ -13,9 +13,9 @@ public class StockClient {
 
 	public static void main(String[] args) throws HttpException, IOException {
 
-		
-		String query_url = "https://data.gateio.co";
-		String trade_url = "https://api.gateio.co";
+
+		String query_url = "https://data.gateio.life";
+		String trade_url = "https://api.gateio.life";
 
 
 		IStockRestApi stockGet = new StockRestApi(query_url);
@@ -34,11 +34,11 @@ public class StockClient {
 		// String marketlist = stockGet.marketlist();
 		// System.out.println(marketlist);
 
-		// Tickers 
+		// Tickers
 //		 String tickers = stockGet.tickers();
 //		 System.out.println(tickers);
 
-		// Ticker 
+		// Ticker
 		// String ticker = stockGet.ticker("eth_btc");
 		// System.out.println(ticker);
 
@@ -58,7 +58,7 @@ public class StockClient {
 		// String depositAddress = stockPost.depositAddress("btc");
 		// System.out.println(depositAddress);
 
-		// get deposit withdrawal history 
+		// get deposit withdrawal history
 		// String depositsWithdrawals = stockPost.depositsWithdrawals("1469092370",
 		// "1669092370");
 		// System.out.println(depositsWithdrawals);
@@ -91,7 +91,7 @@ public class StockClient {
 		// String myTradeHistory = stockPost.myTradeHistory("eth_btc","123456789");
 		// System.out.println(myTradeHistory);
 
-		// withdrawal 
+		// withdrawal
 		// String withdraw = stockPost.withdraw("btc","99","your addr");
 		// System.out.println(withdraw);
 

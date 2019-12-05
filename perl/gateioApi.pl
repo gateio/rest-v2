@@ -9,8 +9,8 @@ use Mojo::Base -base;
 use Mojo::UserAgent;
 use Digest::SHA qw(hmac_sha512_hex);
 
-use constant API_QUERY => 'https://data.gateio.co';
-use constant API_TRADE => 'https://api.gateio.co';
+use constant API_QUERY => 'https://data.gateio.life';
+use constant API_TRADE => 'https://api.gateio.life';
 use constant {
     URL_PAIRS => '/api2/1/pairs',
     URL_MARKET_INFO => '/api2/1/marketinfo',
@@ -214,7 +214,7 @@ sub build_sign {
     my $self = shift;
     my $params = shift;
     my $sign = '';
-    
+
     for my $k ( sort(keys %$params) ) {
         $sign .= $k . '=' . $params->{$k} .'&';
     }

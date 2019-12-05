@@ -10,9 +10,9 @@ namespace Com.Gate.Rest.Test
 {
     class StockRestApiTest
     {
-        private static String QURL = "https://data.gateio.co";
-	    private static String TURL = "https://api.gateio.co";
-	    private static IStockRestApi stockGet = new StockRestApi(QURL);
+        private static String QURL = "https://data.gateio.life";
+        private static String TURL = "https://api.gateio.life";
+        private static IStockRestApi stockGet = new StockRestApi(QURL);
         private static IStockRestApi stockPost = new StockRestApi(TURL);
 
         static void Main(string[] args)

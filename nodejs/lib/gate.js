@@ -6,8 +6,8 @@ var querystring = require('querystring');
 const KEY  = 'your key';
 const SECRET  = 'your secret';
 
-const API_QUERY_URL = 'https://data.gateio.co/';
-const API_TRADE_URL = 'https://api.gateio.co/';
+const API_QUERY_URL = 'https://data.gateio.life/';
+const API_TRADE_URL = 'https://api.gateio.life/';
 const PAIRS_URL = 'api2/1/pairs';
 const MARKETINFO_URL = 'api2/1/marketinfo';
 const MARKETLIST_URL = 'api2/1/marketlist';
