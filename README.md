@@ -36,10 +36,10 @@ Write the requested API keys to the application configuration file.
     *Note: Using the API Keys above will allow you to perform account information inquiries and trading operations through the program, but not withdrawal operations. Do not disclose the API Keys to others.
     *Create new API Keys: Generate new API Keys, the old ones will be invalidated immediately.
 
-##Request Format 
+## Request Format 
    All API requests are called as GET or POST. Getting market data is requested via GET, with all parameters in path parameters; for transaction and account data is requested via POST, and all parameters are sent in JSON format.
  
-##Return Format
+## Return Format
    All interface returns are in JSON format. The [API2.0](https://gate.io/en/api2) document has JSON fields for request status and properties.
  
 ## Error message
