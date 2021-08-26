@@ -1,67 +1,70 @@
-# Rest API 简介
+# Rest API Introduction
 
-欢迎使用Gate Rest API！ 你可以使用此 API 获得市场行情数据，交易，并且管理你的账户。
+Welcome to the Gate Rest API! You can use this API to get market data, trade, and manage your account.
 
-具体每一个API调用，[API2.0](https://gateio.co/api2)中文文档 有详细说明
+Each API call is described in detail in the [API2.0](https://gate.io/en/api2) English documentation
 
-## API接口地址
+The API v2 version is no longer being updated and maintained, and we recommend that you use the latest [API v4](https://www.gate.io/docs/developers/apiv4/en/) version.
 
-https://data.gateio.co
+## API Interface Address
+
+https://data.gateapi.io
     
-    * 鉴于高延迟和差稳定性等原因，不建议通过代理方式访问。
+    * Access via proxy is not recommended for reasons such as high latency and poor stability.
+
  
-## 限频规则
-  10次/秒
+## Rate Limit
+  10r/s
   
-## 创建 API Key
-您可以在 [这里](https://www.gateio.co/myaccount/apikeys) 创建 API Key。
+## Create API Key
+You can create the API Key at [here](https://www.gate.io/en/myaccount/apikeys).
 
-API Keys 包括以下两部分
+API Keys includes the following two parts
 
-Key 密钥
+Key : API key
 
-Secret 签名认证加密所使用的密钥
+Secret : The key used for signature authentication encryption
 
-把申请到的API keys 写入到程序配置文件中。
+Write the requested API keys to the application configuration file.
 
     // API settings, add your Key and Secret at here
     $key = '';
     $secret = '';
 
 
-    *创建 API Keys 时可以选择绑定 IP ,可通过IP 白名单(多个IP用英文半角逗号隔开) 设置。
-    *注意：使用上面的 API Keys 可以让您通过程序进行账号信息查询，交易操作，不能进行提现操作。切勿泄露API Keys给他人。
-    *创建新的API Keys：产生新的API Keys，旧的API Keys将立即失效。
+    *When creating API Keys, you can choose to bind IPs, which can be set by IP whitelist (multiple IPs separated by half comma).
+    *Note: Using the API Keys above will allow you to perform account information inquiries and trading operations through the program, but not withdrawal operations. Do not disclose the API Keys to others.
+    *Create new API Keys: Generate new API Keys, the old ones will be invalidated immediately.
 
- ##请求格式
- 所有的API请求都以GET或者POST形式调用。获取市场数据通过GET请求，所有的参数都在路径参数里；对于交易和账户数据通过POST请求，所有参数则以JSON格式发送。
+##Request Format 
+   All API requests are called as GET or POST. Getting market data is requested via GET, with all parameters in path parameters; for transaction and account data is requested via POST, and all parameters are sent in JSON format.
  
- ##返回格式
- 所有的接口返回都是JSON格式。在[API2.0](https://gateio.co/api2) 文档中有JSON表示请求状态和属性的字段。
+##Return Format
+   All interface returns are in JSON format. The [API2.0](https://gate.io/en/api2) document has JSON fields for request status and properties.
  
- ## 错误信息
+## Error message
  
- 系统返回错误码对应说明
+  The system returns an error code corresponding to the description
  
-    错误代码	详细描述
-    1	无效请求
-    2	无效版本
-    3	无效请求
-    4	没有访问权限
-    5,6	Key或签名无效，请重新创建
-    7	币种对不支持
-    8,9	币种不支持
-    10	验证错误
-    11	地址获取失败
-    12	参数为空
-    13	系统错误，联系管理员
-    14	无效用户
-    15	撤单太频繁，一分钟后再试
-    16	无效单号，或挂单已撤销
-    17	无效单号
-    18	无效挂单量
-    19	交易已暂停
-    20	挂单量太小
-    21	资金不足
-    40	请求太频繁，稍后再试
+    Error Codes	       Details
+    1	               Invalid request
+    2	               Invalid version
+    3	               Invalid request
+    4	               Forbidden access
+    5,6	               Invalid sign
+    7	               Currency is not supported
+    8,9	               Currency is not supported
+    10	               Verified failed
+    11	               Obtaining address failed
+    12	               Empty params
+    13	               Internal error, please report to administrator
+    14	               Invalid user
+    15	               Cancel order too fast, please wait 1 min and try again
+    16	               Invalid order id or order is already closed
+    17	               Invalid orderid
+    18	               Invalid amount
+    19	               Not permitted or trade is disabled
+    20	               Your order size is too small
+    21	               You don't have enough fund
+    40	               Too many attempts
 
